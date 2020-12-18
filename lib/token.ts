@@ -87,7 +87,8 @@ function revokeToken(sdk: OktaAuth, token: RevocableToken): Promise<any> {
       var revokeUrl = getOAuthUrls(sdk).revokeUrl;
       var args = toQueryString({
         // eslint-disable-next-line camelcase
-        token_type_hint: refreshToken ? 'refresh_token' : 'access_token', 
+        token_type_hint: refreshToken ? 'refresh_token' : 'access_token',
+        clientId: clientId,
         token: refreshToken || accessToken,
       }).slice(1);
       var creds = btoa(clientId);
