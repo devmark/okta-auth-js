@@ -408,7 +408,7 @@ function loadConfig() {
     requireUserSession = url.searchParams.get('requireUserSession') ? 
       url.searchParams.get('requireUserSession')  === 'true' : config.requireUserSession;
     scopes = url.searchParams.get('scopes') || config.scopes;
-    useInteractionCodeFlow = url.searchParams.get('useInteractionCodeFlow') || config.useInteractionCodeFlow;
+    useInteractionCodeFlow = url.searchParams.get('useInteractionCodeFlow') === 'true' || config.useInteractionCodeFlow;
   }
   // Create a canonical app URI that allows clean reloading with this config
   appUri = window.location.origin + '/' +
@@ -417,7 +417,7 @@ function loadConfig() {
     '&storage=' + encodeURIComponent(storage) + 
     '&requireUserSession=' + encodeURIComponent(requireUserSession) + 
     '&flow=' + encodeURIComponent(flow) +
-    '&scopes=' + encodeURIComponent(scopes)
+    '&scopes=' + encodeURIComponent(scopes) +
     '&useInteractionCodeFlow=' + encodeURIComponent(useInteractionCodeFlow);
   
   // Add all app options to the state, to preserve config across redirects
