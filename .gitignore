@@ -9,3 +9,5 @@ testenv
 junit.xml
 lerna-debug.*
 yarn-error.*
+dist
+.idea

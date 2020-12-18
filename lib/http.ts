@@ -40,7 +40,7 @@ function httpRequest(sdk: OktaAuth, options: RequestOptions): Promise<any> {
   var headers: HeadersInit = {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
-    'X-Okta-User-Agent-Extended': sdk.userAgent
+    // 'X-Okta-User-Agent-Extended': sdk.userAgent
   };
   Object.assign(headers, sdk.options.headers, options.headers);
   headers = removeNils(headers) as HeadersInit;
