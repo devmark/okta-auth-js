@@ -104,6 +104,8 @@ function httpRequest(sdk: OktaAuth, options: RequestOptions): Promise<any> {
 
       err = new AuthApiError(serverErr, resp);
 
+      storage.set('AUTH_API_ERROR', err, new Date(Date.now() + 10000).toDateString(), sdk.options.cookies);
+
       if (err.errorCode === 'E0000011') {
         storage.delete(STATE_TOKEN_KEY_NAME);
       }
