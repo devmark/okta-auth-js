@@ -85,6 +85,7 @@ function revokeToken(sdk: OktaAuth, token: RevocableToken): Promise<any> {
         throw new AuthSdkError('A clientId must be specified in the OktaAuth constructor to revoke a token');
       }
       var revokeUrl = getOAuthUrls(sdk).revokeUrl;
+      // EMCOO
       var args = toQueryString({
         // eslint-disable-next-line camelcase
         token_type_hint: refreshToken ? 'refresh_token' : 'access_token',

@@ -367,6 +367,8 @@ class OktaAuthBrowser extends OktaAuthBase implements OktaAuth, SignoutAPI {
       await this.revokeAccessToken(accessToken);
     }
 
+
+    // EMCOO
     // No idToken? This can happen if the storage was cleared.
     // Fallback to XHR signOut, then simulate a redirect to the post logout uri
     if (!idToken || false) {

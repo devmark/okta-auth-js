@@ -68,6 +68,7 @@ function fetchRequest(method: string, url: string, args: FetchOptions) {
       })
       .then(result => {
         if (error) {
+          // EMCOO
           localStorage.setItem('auth-error', JSON.stringify(result));
           // Throwing result object since error handling is done in http.js
           throw result;
