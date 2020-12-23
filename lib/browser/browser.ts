@@ -370,14 +370,14 @@ class OktaAuthBrowser extends OktaAuthBase implements OktaAuth, SignoutAPI {
     // No idToken? This can happen if the storage was cleared.
     // Fallback to XHR signOut, then simulate a redirect to the post logout uri
     if (!idToken) {
-      return this.closeSession() // can throw if the user cannot be signed out
-      .then(function() {
-        if (postLogoutRedirectUri === currentUri) {
-          window.location.reload(); // force a hard reload if URI is not changing
-        } else {
-          window.location.assign(postLogoutRedirectUri);
-        }
-      });
+      // return this.closeSession() // can throw if the user cannot be signed out
+      // .then(function() {
+      //   if (postLogoutRedirectUri === currentUri) {
+      //     window.location.reload(); // force a hard reload if URI is not changing
+      //   } else {
+      //     window.location.assign(postLogoutRedirectUri);
+      //   }
+      // });
     }
   
     // logout redirect using the idToken.

@@ -28,7 +28,7 @@ function sessionExists(sdk) {
 }
 
 function getSession(sdk) {
-  return http.get(sdk, '/protocol/openid-connect/login-status-iframe.html')
+  return http.get(sdk, '/api/v1/sessions/me')
   .then(function(session) {
     var res = omit(session, '_links');
 
@@ -50,7 +50,7 @@ function getSession(sdk) {
 
 function closeSession(sdk) {
   return http.httpRequest(sdk, {
-    url: sdk.getIssuerOrigin() + '/protocol/openid-connect/login-status-iframe.html',
+    url: sdk.getIssuerOrigin() + '/api/v1/sessions/me',
     method: 'DELETE'
   });
 }
